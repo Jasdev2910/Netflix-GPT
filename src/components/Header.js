@@ -1,35 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../assets/netflix-logo.png";
-import {
-  Avatar,
-  Box,
-  IconButton,
-  ListItem,
-  Menu,
-  MenuItem,
-  Tooltip,
-} from "@mui/material";
+import { Avatar, Box, IconButton, ListItem, Tooltip } from "@mui/material";
 import { Logout } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
-import { signOut } from "firebase/auth";
-import { useSelector } from "react-redux";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
+  // const avatarAlphabet =
+  //   user.displayName === null ? user.displayName : user.displayName.at(0);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    const unsubscibe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+      } else {
+        // User is signed out
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+    // unsubscribe when component unmounts
+    return () => unsubscibe();
+  }, []);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("/");
       })
       .catch((error) => {
         // An error happened.
@@ -45,9 +63,7 @@ const Header = () => {
           <Box>
             <Tooltip>
               <IconButton onClick={handleClick}>
-                <Avatar className="bg-orange-500">
-                  {user.displayName.charAt(0)}
-                </Avatar>
+                <Avatar>{user?.displayName?.at(0)}</Avatar>
               </IconButton>
             </Tooltip>
           </Box>
