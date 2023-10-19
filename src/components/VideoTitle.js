@@ -4,7 +4,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className=" w-full aspect-video pt-[22%] pl-16 absolute">
+    <div className=" w-full aspect-video pt-[15%] pl-16 absolute bg-gradient-to-t from-black">
       <h1 className="text-4xl font-bold text-white text">{title}</h1>
       <p className="w-2/5 py-2 text-white">{overview}</p>
       <div className="text-white font-semibold">
