@@ -8,10 +8,10 @@ const MainContainer = () => {
 
   if (!movies) return;
 
-  const mainMovie = movies[2];
-  console.log(mainMovie);
+  const mainMovie = movies[8];
+  // console.log(mainMovie);
   const { original_title, overview, id } = mainMovie;
-  console.log(original_title, overview);
+  // console.log(original_title, overview);
 
   return (
     <div>
