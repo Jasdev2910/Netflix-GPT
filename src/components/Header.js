@@ -65,7 +65,6 @@ const Header = () => {
   };
 
   const handleLanguageChange = (e) => {
-    // console.log(e.target.value);
     dispatch(changeLanguage(e.target.value));
   };
 
@@ -88,7 +87,9 @@ const Header = () => {
           )}
           <div className="px-4 py-2 mr-2 font-medium text-sm bg-green-400 text-black rounded-lg flex cursor-pointer hover:bg-green-500">
             <img className="w-4 mr-1 " alt="ai-logo" src={AI_LOGO} />
-            <button onClick={handleGptSearchClick}>GPT Search</button>
+            <button onClick={handleGptSearchClick}>
+              {isGptPageActive ? "Home" : "GPT Search"}
+            </button>
           </div>
           <div>
             <Box>

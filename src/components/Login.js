@@ -20,8 +20,6 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
 
-  //   console.log(auth);
-
   const handleButtonClick = () => {
     const message = checkValidData(
       name?.current?.value,
@@ -65,7 +63,6 @@ const Login = () => {
               // An error occurred
               setErrorMessage(error.message);
             });
-          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -94,7 +91,6 @@ const Login = () => {
 
   const handleToggle = () => {
     setIsUser(!isUser);
-    // console.log(isUser);
   };
 
   return (
