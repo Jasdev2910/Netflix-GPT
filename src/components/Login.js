@@ -98,59 +98,61 @@ const Login = () => {
       <Header />
       <div>
         <img
-          className="absolute  bg-image  w-screen bg-cover bg-center "
+          className="absolute object-cover bg-image w-full h-full"
           src={BackgroundImg}
           alt="bg-img"
         />
       </div>
-      <div className="absolute inset-0 bottom-[-112px]  bg-slate-900 bg-opacity-70"></div>
-      <div className="mt-8 text-white py-10  bg-black absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-opacity-75 rounded-xl">
-        <form
+      <div className="absolute inset-0 object-cover bg-slate-900 bg-opacity-70"></div>
+      <div className="mt-8 text-white py-10 px-10 md:px-0 bg-black absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-opacity-75 rounded-xl">
+        <div
           onSubmit={(e) => e.preventDefault()}
-          className="min-w-[450px] px-20 py-5 flex flex-col"
+          className="max-w-[250px] md:min-w-[450px] py-5 "
         >
-          <h1 className="text-4xl font-semibold mb-6">
-            {isUser ? "Sign In" : "Sign Up"}
-          </h1>
-          {!isUser && (
+          <div className="flex flex-col md:px-10">
+            <h1 className=" text-2xl md:text-4xl font-semibold mb-6">
+              {isUser ? "Sign In" : "Sign Up"}
+            </h1>
+            {!isUser && (
+              <input
+                ref={name}
+                className="px-4 py-4 mb-5 bg-gray-700 rounded-md "
+                type="text"
+                placeholder="Full Name"
+              />
+            )}
             <input
-              ref={name}
+              ref={email}
               className=" px-4 py-4 mb-5 bg-gray-700 rounded-md "
               type="text"
-              placeholder="Full Name"
+              placeholder="Email Address"
             />
-          )}
-          <input
-            ref={email}
-            className=" px-4 py-4 mb-5 bg-gray-700 rounded-md "
-            type="text"
-            placeholder="Email Address"
-          />
-          <input
-            ref={password}
-            className="px-4 py-4 mb-5 bg-gray-700 rounded-md "
-            type="password"
-            placeholder="Password"
-          />
-          <p className="w-[300px] pb-2 text-red-700 text-base">
-            {errorMessage}
-          </p>
-          <button
-            onClick={handleButtonClick}
-            className="px-4 py-4 mb-5 font-medium bg-red-700 rounded-md "
-          >
-            {isUser ? "Sign In" : "Sign Up"}
-          </button>
-          <p className="pt-8 text-gray-400">
-            {isUser ? "New to Netflix? " : "Already a user? "}
-            <span
-              onClick={handleToggle}
-              className="cursor-pointer font-semibold text-white"
+            <input
+              ref={password}
+              className="px-4 py-4 mb-5 bg-gray-700 rounded-md "
+              type="password"
+              placeholder="Password"
+            />
+            <p className="w-[300px] pb-2 text-red-700 text-base">
+              {errorMessage}
+            </p>
+            <button
+              onClick={handleButtonClick}
+              className="px-4 py-4 mb-5 font-medium bg-red-700 rounded-md "
             >
-              {isUser ? "Sign Up" : "Sign In"}
-            </span>
-          </p>
-        </form>
+              {isUser ? "Sign In" : "Sign Up"}
+            </button>
+            <p className="pt-8 text-sm md:text-base text-gray-400">
+              {isUser ? "New to Netflix? " : "Already a user? "}
+              <span
+                onClick={handleToggle}
+                className="cursor-pointer font-semibold text-white"
+              >
+                {isUser ? "Sign Up" : "Sign In"}
+              </span>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

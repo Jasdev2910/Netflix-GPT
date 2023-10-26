@@ -69,14 +69,16 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-black flex justify-between absolute z-10 p-4">
-      <img className="w-44 " src={Logo} alt="logo" />
+    <div className="w-full bg-gradient-to-b from-black flex justify-between items-center absolute z-10 p-1 md:p-4">
+      <div className="w-28 md:w-44">
+        <img src={Logo} alt="logo" />
+      </div>
       {user && (
         <div className="flex items-center justify-between">
           {isGptPageActive && (
             <div>
               <select
-                className="p-2 mr-4 rounded-md bg-gray-900 text-white hover:bg-slate-700"
+                className="p-1 mr-2 md:p-2 md:mr-4 rounded-md bg-gray-900 text-white hover:bg-slate-700"
                 onChange={handleLanguageChange}
               >
                 {SUPPORTED_LANG.map((lang) => (
@@ -85,23 +87,25 @@ const Header = () => {
               </select>
             </div>
           )}
-          <div className="px-4 py-2 mr-2 font-medium text-sm bg-green-400 text-black rounded-lg flex cursor-pointer hover:bg-green-500">
-            <img className="w-4 mr-1 " alt="ai-logo" src={AI_LOGO} />
-            <button onClick={handleGptSearchClick}>
-              {isGptPageActive ? "Home" : "GPT Search"}
-            </button>
+          <div
+            onClick={handleGptSearchClick}
+            className=" px-2 py-1 md:px-4 md:py-1 md:mr-2 font-medium text-xs md:text-base bg-green-400 text-black rounded-lg flex cursor-pointer hover:bg-green-500"
+          >
+            <button>{isGptPageActive ? "Home" : "GPT Search"}</button>
           </div>
-          <div>
+          <div className="text-sm">
             <Box>
               <Tooltip>
                 <IconButton onClick={handleClick}>
-                  <Avatar>{user?.displayName?.at(0)}</Avatar>
+                  <Avatar className="" sx={{ width: 30, height: 30 }}>
+                    {user?.displayName?.at(0)}
+                  </Avatar>
                 </IconButton>
               </Tooltip>
             </Box>
 
             {isOpen && (
-              <div className="bg-white w-[130px] right-10 absolute rounded-md">
+              <div className="bg-white md:w-[100px] right-6 absolute rounded-md">
                 <ListItem
                   onClick={handleSignOut}
                   className="cursor-pointer hover:bg-slate-300 hover:rounded-md"

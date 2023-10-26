@@ -57,16 +57,20 @@ const GptSearchBar = () => {
 
   return (
     <div className="relative w-full h-[300px] ">
-      <img className=" w-full h-full fixed" alt="bg-img" src={BackgroundImg} />
-      <div className="w-1/2 p-8 absolute bg-black flex justify-between top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-opacity-80">
+      <img
+        className=" w-full h-full object-cover fixed"
+        alt="bg-img"
+        src={BackgroundImg}
+      />
+      <div className=" w-11/12 md:w-3/5 p-3 md:-1/2 md:p-8 absolute bg-black flex justify-between top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-opacity-80">
         <input
           ref={searchText}
-          className="px-4 py-2 w-4/5 text-white rounded-full bg-gray-700 hover:bg-gray-600 border-none"
+          className="w-11/12 px-2 py-2 text-sm md:text-base md:px-4 md:py-2 md:w-4/5 text-white rounded-full bg-gray-700 hover:bg-gray-600 border-none"
           placeholder={lang[langKey].gptSearchPlaceholder}
         />
         <button
           onClick={handleGptSearchClick}
-          className="w-1/5 px-4 py-2 ml-2 bg-red-700 hover:bg-red-600 font-medium rounded-full"
+          className="text-sm ml-1 px-1 md:text-base md:w-1/5 md:px-4 md:py-2 md:ml-2 bg-red-700 hover:bg-red-600 font-medium rounded-full"
         >
           {lang[langKey].search}
         </button>
