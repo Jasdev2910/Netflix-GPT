@@ -15,8 +15,8 @@ const MovieList = ({ title, movies }) => {
           </h1>
         </div>
       ) : (
-        <div className="top-2 md:px-6 md:w-[180px] md:h-[270px] bg-gradient-to-r from-black from-30% via-gray-950 via-50 bg-black md:absolute text-center flex items-center bg-opacity-0">
-          <h1 className=" text-lg md:text-3xl p-2 text-left font-bold text-red-500">
+        <div className="top-2 md:px-6 md:w-[180px] md:h-[350px] z-20 bg-gradient-to-r from-black from-40% via-gray-950 via-50 bg-black md:absolute text-center flex items-center bg-opacity-0">
+          <h1 className=" text-lg md:text-3xl p-2 text-left font-bold text-red-500 z-20">
             {title}
           </h1>
         </div>
@@ -26,7 +26,12 @@ const MovieList = ({ title, movies }) => {
           <div className="flex ">
             {movies?.map((movie) => (
               <Link to={"/movie/" + movie.id}>
-                <MovieCard poster_path={movie.poster_path} />
+                <MovieCard
+                  title={movie.title}
+                  date={movie.release_date}
+                  rating={movie.vote_average.toFixed(1)}
+                  poster_path={movie.poster_path}
+                />
               </Link>
             ))}
           </div>
@@ -36,7 +41,12 @@ const MovieList = ({ title, movies }) => {
           <div className="flex ">
             {movies?.map((movie) => (
               <Link to={"/movie/" + movie.id}>
-                <MovieCard poster_path={movie.poster_path} />
+                <MovieCard
+                  title={movie.title}
+                  date={movie.release_date}
+                  rating={movie.vote_average.toFixed(1)}
+                  poster_path={movie.poster_path}
+                />
               </Link>
             ))}
           </div>
