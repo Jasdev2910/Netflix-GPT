@@ -25,7 +25,7 @@ const MovieList = ({ title, movies }) => {
         <div className="flex overflow-x-scroll no-scrollbar scroll-smooth">
           <div className="flex ">
             {movies?.map((movie) => (
-              <Link to={"/movie/" + movie.id}>
+              <Link key={movie.id} to={"/movie/" + movie.id}>
                 <MovieCard
                   title={movie.title}
                   date={movie.release_date}
@@ -40,7 +40,7 @@ const MovieList = ({ title, movies }) => {
         <div className="flex md:pl-[130px] overflow-x-scroll no-scrollbar scroll-smooth">
           <div className="flex ">
             {movies?.map((movie) => (
-              <Link to={"/movie/" + movie.id}>
+              <Link key={movie.id} to={"/movie/" + movie.id}>
                 <MovieCard
                   title={movie.title}
                   date={movie.release_date}

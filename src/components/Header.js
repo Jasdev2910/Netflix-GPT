@@ -22,12 +22,8 @@ const Header = () => {
   // const avatarAlphabet =
   //   user.displayName === null ? user.displayName : user.displayName.at(0);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
-
   useEffect(() => {
-    const unsubscibe = onAuthStateChanged(auth, (user) => {
+    const unsubsrcibe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } = user;
         dispatch(
@@ -46,8 +42,12 @@ const Header = () => {
       }
     });
     // unsubscribe when component unmounts
-    return () => unsubscibe();
+    return () => unsubsrcibe();
   }, []);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
 
   const handleSignOut = () => {
     signOut(auth)
@@ -82,7 +82,9 @@ const Header = () => {
                 onChange={handleLanguageChange}
               >
                 {SUPPORTED_LANG.map((lang) => (
-                  <option value={lang.identifier}>{lang.name}</option>
+                  <option key={lang.name} value={lang.identifier}>
+                    {lang.name}
+                  </option>
                 ))}
               </select>
             </div>
