@@ -7,7 +7,6 @@ import { auth } from "../utils/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import AI_LOGO from "../assets/Ai-logo.png";
 import { toggleToGptPage } from "../utils/gptSlice";
 import { SUPPORTED_LANG } from "../utils/constants";
 import { changeLanguage } from "../utils/configSlice";

@@ -7,7 +7,8 @@ import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomimgMovies from "../hooks/useUpcomimgMovies";
 import GptSearchPage from "./GptSearchPage";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeMovieDetails } from "../utils/moviePageSlice";
 
 const Browse = () => {
   const toggledValue = useSelector((store) => store.gpt.showGptSearchPage);
@@ -15,6 +16,8 @@ const Browse = () => {
   usePopularMovies();
   useTopRatedMovies();
   useUpcomimgMovies();
+  // const dispatch = useDispatch();
+  // dispatch(removeMovieDetails());
 
   return (
     <div>
