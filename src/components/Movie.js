@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useMovieDetails from "../hooks/useMovieDetails";
 import Header from "./Header";
@@ -11,8 +11,11 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import GradeOutlinedIcon from "@mui/icons-material/GradeOutlined";
 import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
+import { Flag } from "@mui/icons-material";
+import VideoBackground from "./VideoBackground";
 
 const Movie = () => {
+  const [toggle, setToggle] = useState(false);
   const movieId = useParams();
   useMovieDetails(movieId);
   const details = useSelector((store) => store.moviePageDetails);
@@ -21,6 +24,13 @@ const Movie = () => {
 
   const hours = Math.floor(details.movieDetails?.runtime / 60);
   const minutes = Math.floor(details.movieDetails?.runtime % 60);
+
+  const handlePlay = () => {
+    setToggle(!toggle);
+  };
+  const handlePause = () => {
+    setToggle(false);
+  };
 
   return (
     <div className="relative">
@@ -38,7 +48,7 @@ const Movie = () => {
             src={IMAGE_CDN_URL + details.movieDetails?.poster_path}
           />
         </div>
-        <div className="pt-20 text-white">
+        <div className="w-8/12 pt-20 text-white">
           <h1 className=" text-3xl font-semibold">
             {details.movieDetails?.original_title}
           </h1>
@@ -68,11 +78,34 @@ const Movie = () => {
             <button className="mx-4 transition hover:-translate-y-1 after:text-red-600">
               <GradeOutlinedIcon fontSize="large" />
             </button>
-            <button className="text-xl transition hover:-translate-y-1 px-2 text-white rounded-lg">
+            <button
+              onClick={handlePlay}
+              className="text-xl transition hover:-translate-y-1 px-2 text-white rounded-lg"
+            >
               <PlayCircleOutlineOutlinedIcon fontSize="large" /> Play
             </button>
           </div>
+          <div>
+            <h3 className="text-xl font-medium">Overview</h3>
+            <p className="w-3/4">{details.movieDetails?.overview}</p>
+          </div>
         </div>
+        {toggle && (
+          <>
+            <div className="w-full h-full absolute flex items-center">
+              <div className="w-8/12 z-10 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 absolute">
+                <VideoBackground
+                  id={details.movieDetails?.id}
+                  mute={"&mute=0&controls=1&rel=0"}
+                />
+              </div>
+              <div
+                onClick={handlePause}
+                className="w-full h-full bg-black bg-opacity-90 -z-0 absolute"
+              ></div>
+            </div>{" "}
+          </>
+        )}
       </div>
     </div>
   );

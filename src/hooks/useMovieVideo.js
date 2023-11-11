@@ -14,7 +14,7 @@ const useMovieVideo = (id) => {
     const json = await data.json();
 
     const filterData = json?.results?.filter(
-      (video) => video.type === "Teaser"
+      (video) => video.type === "Trailer"
     );
 
     const trailer = filterData?.length ? filterData[0] : json?.results[0];
@@ -23,7 +23,7 @@ const useMovieVideo = (id) => {
   };
 
   useEffect(() => {
-    !movieTrailer && getMovieVideos();
+    getMovieVideos();
   }, []);
 };
 

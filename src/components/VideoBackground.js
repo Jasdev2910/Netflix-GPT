@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import useMovieVideo from "../hooks/useMovieVideo";
 
-const VideoBackground = ({ id }) => {
+const VideoBackground = ({ id, mute }) => {
   const movieTrailer = useSelector((store) => store.movies?.movieTrailer);
 
   useMovieVideo(id);
@@ -15,11 +15,13 @@ const VideoBackground = ({ id }) => {
         src={
           "https://www.youtube-nocookie.com/embed/" +
           movieTrailer?.key +
-          "?&loop=1&autoplay=1&mute=1&controls=0&rel=0&playlist=" +
+          "?&loop=1&autoplay=1" +
+          mute +
+          "&playlist=" +
           movieTrailer?.key
         }
         title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allow="fullscreen;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       ></iframe>
     </div>
   );
