@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useMovieDetails from "../hooks/useMovieDetails";
 import Header from "./Header";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IMAGE_CDN_URL } from "./../utils/constants";
 import Genre from "./Genre";
 import dayjs from "dayjs";
@@ -13,6 +13,13 @@ import GradeOutlinedIcon from "@mui/icons-material/GradeOutlined";
 import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
 import { Flag } from "@mui/icons-material";
 import VideoBackground from "./VideoBackground";
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import {
+  addFavouriteMovie,
+  addWatchlist,
+  removeFavouriteMovie,
+  removeWatchlist,
+} from "../utils/moviesSlice";
 
 const Movie = () => {
   const [toggle, setToggle] = useState(false);
@@ -24,12 +31,22 @@ const Movie = () => {
 
   const hours = Math.floor(details.movieDetails?.runtime / 60);
   const minutes = Math.floor(details.movieDetails?.runtime % 60);
+  const dispatch = useDispatch();
 
   const handlePlay = () => {
     setToggle(!toggle);
   };
   const handlePause = () => {
     setToggle(false);
+  };
+
+  const addToFavourite = () => {
+    dispatch(addFavouriteMovie(details.movieDetails));
+    dispatch(removeFavouriteMovie(details.movieDetails?.id));
+  };
+  const addTowatchList = () => {
+    dispatch(addWatchlist(details.movieDetails));
+    dispatch(removeWatchlist(details.movieDetails?.id));
   };
 
   return (
@@ -69,10 +86,16 @@ const Movie = () => {
                 rating={details.movieDetails?.vote_average.toFixed(1)}
               />
             </div>
-            <button className="mx-4 transition hover:-translate-y-1 after:text-red-600">
+            <button
+              onClick={addToFavourite}
+              className="mx-4 transition hover:-translate-y-1 after:text-red-600"
+            >
               <FavoriteBorderIcon fontSize="large" />
             </button>
-            <button className="mx-4 transition hover:-translate-y-1 after:text-red-600">
+            <button
+              onClick={addTowatchList}
+              className="mx-4 transition hover:-translate-y-1 after:text-red-600"
+            >
               <BookmarkAddOutlinedIcon fontSize="large" />
             </button>
             <button className="mx-4 transition hover:-translate-y-1 after:text-red-600">
@@ -101,8 +124,13 @@ const Movie = () => {
               </div>
               <div
                 onClick={handlePause}
-                className="w-full h-full bg-black bg-opacity-90 -z-0 absolute"
-              ></div>
+                className="w-full h-full flex text-white bg-black bg-opacity-90 -z-0 absolute"
+              >
+                <h2>Movie Trailer</h2>
+                <button>
+                  <CancelOutlinedIcon />
+                </button>
+              </div>
             </div>{" "}
           </>
         )}
