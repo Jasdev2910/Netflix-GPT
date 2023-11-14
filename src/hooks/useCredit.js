@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addCast } from "../utils/slices/creditsSlice";
 
-const useCredit = () => {
+const useCredit = ({ movieId }) => {
+  const dispatch = useDispatch();
   const getCredits = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/" +
@@ -11,11 +14,12 @@ const useCredit = () => {
     );
 
     const json = await data.json();
+    dispatch(addCast(json));
   };
 
   useEffect(() => {
     getCredits();
-  });
+  }, []);
 };
 
 export default useCredit;

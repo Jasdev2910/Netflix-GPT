@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "../utils/userSlice";
-import { toggleToGptPage } from "../utils/gptSlice";
+import { addUser, removeUser } from "../utils/slices/userSlice";
+import { toggleToGptPage } from "../utils/slices/gptSlice";
 import { SUPPORTED_LANG } from "../utils/constants";
-import { changeLanguage } from "../utils/configSlice";
+import { changeLanguage } from "../utils/slices/configSlice";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
