@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
-import { addMovieDetails, removeMovieDetails } from "../utils/moviePageSlice";
+import {
+  addMovieDetails,
+  removeMovieDetails,
+} from "../utils/slices/moviePageSlice";
 import { useDispatch } from "react-redux";
 
 const useMovieDetails = ({ movieId }) => {
