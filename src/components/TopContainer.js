@@ -51,7 +51,7 @@ const TopContainer = () => {
   };
   return (
     <div>
-      <div className="relative   ">
+      <div className="relative">
         <img
           className="w-full h-full absolute object-cover -z-10"
           alt="backdropImg"

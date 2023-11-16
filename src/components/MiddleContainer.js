@@ -9,8 +9,9 @@ const MiddleContainer = () => {
   useCredit(movieId);
   const cast = useSelector((store) => store.credits.cast);
   return (
-    <div>
-      <div className="relative flex overflow-x-scroll no-scrollbar scroll-smooth ">
+    <div className="px-5 py-5">
+      <h3 className="text-xl font-semibold">Top Billed Cast</h3>
+      <div className="pt-2 flex overflow-x-scroll no-scrollbar scroll-smooth ">
         {cast?.cast?.map((cast) => (
           <CastCard
             img_path={cast.profile_path}
