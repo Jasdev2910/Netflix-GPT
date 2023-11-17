@@ -5,6 +5,7 @@ import gptReducer from "./slices/gptSlice";
 import configReducer from "./slices/configSlice";
 import moviePageReducer from "./slices/moviePageSlice";
 import credits from "./slices/creditsSlice";
+import reviewReducer from "./slices/reviewSlice";
 
 const appStore = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const appStore = configureStore({
     config: configReducer,
     moviePageDetails: moviePageReducer,
     credits: credits,
+    reviews: reviewReducer,
   },
 });
 
