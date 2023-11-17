@@ -3,10 +3,12 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useCredit from "./../hooks/useCredit";
 import CastCard from "./CastCard";
+import useReview from "../hooks/useReview";
 
 const MiddleContainer = () => {
   const movieId = useParams();
   useCredit(movieId);
+  useReview(movieId);
   const cast = useSelector((store) => store.credits.cast);
   return (
     <div className="px-5 py-5">
