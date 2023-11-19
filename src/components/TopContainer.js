@@ -27,7 +27,7 @@ const TopContainer = () => {
 
   const details = useSelector((store) => store.moviePageDetails);
   const cast = useSelector((store) => store.credits.cast);
-  console.log(details);
+
   const date = details.movieDetails?.release_date;
 
   const hours = Math.floor(details.movieDetails?.runtime / 60);

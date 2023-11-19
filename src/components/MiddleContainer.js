@@ -8,8 +8,10 @@ import Review from "./Review";
 
 const MiddleContainer = () => {
   const movieId = useParams();
+
   useCredit(movieId);
   useReview(movieId);
+
   const cast = useSelector((store) => store.credits.cast);
   const review = useSelector((store) => store.reviews.review);
   return (
@@ -24,7 +26,7 @@ const MiddleContainer = () => {
           />
         ))}
       </div>
-      <div className="px-5 py-5">
+      <div className="px-5 py-5 ">
         <h2 className="font-semibold text-2xl pt-3">Social</h2>
         <div className="overflow-y-scroll no-scrollbar scroll-smooth ">
           {review?.results?.map((review) => (

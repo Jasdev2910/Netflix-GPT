@@ -32,7 +32,6 @@ const moviesSlice = createSlice({
       let find = state?.favourites?.findIndex(
         (movie) => movie.id === action.payload.id
       );
-      console.log(find);
 
       if (find >= 0) {
         alert("Already in Favourites");
@@ -49,7 +48,6 @@ const moviesSlice = createSlice({
       let find = state?.watchList?.findIndex(
         (movie) => movie.id === action.payload.id
       );
-      console.log(find);
 
       if (find >= 0) {
         alert("Already in Watchlist");
