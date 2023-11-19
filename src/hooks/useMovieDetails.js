@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 
 const useMovieDetails = ({ movieId }) => {
   const dispatch = useDispatch();
-  console.log(movieId);
 
   const getMovieDetails = async () => {
     const data = await fetch(
@@ -16,7 +15,6 @@ const useMovieDetails = ({ movieId }) => {
       API_OPTIONS
     );
     const json = await data.json();
-    console.log(json);
     dispatch(addMovieDetails(json));
   };
   useEffect(() => {
