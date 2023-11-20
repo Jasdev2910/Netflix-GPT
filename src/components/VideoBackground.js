@@ -1,28 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import useMovieVideo from "../hooks/useMovieVideo";
+import YoutubeFrame from "./YoutubeFrame";
 
-const VideoBackground = ({ id, mute }) => {
+const VideoBackground = ({ movieId, mute }) => {
   const movieTrailer = useSelector((store) => store.movies?.movieTrailer);
+  const keys = movieTrailer?.key;
+  console.log(keys);
 
-  useMovieVideo(id);
+  useMovieVideo(movieId);
 
   return (
-    <div className=" w-full">
-      <iframe
-        className="w-full  aspect-video bg-gradient-to-t from-black"
-        showinfo="0"
-        src={
-          "https://www.youtube-nocookie.com/embed/" +
-          movieTrailer?.key +
-          "?&loop=1&autoplay=1" +
-          mute +
-          "&playlist=" +
-          movieTrailer?.key
-        }
-        title="YouTube video player"
-        allow="fullscreen;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      ></iframe>
+    <div>
+      <YoutubeFrame keys={keys} mute={mute} />
     </div>
   );
 };

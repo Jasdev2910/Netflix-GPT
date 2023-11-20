@@ -5,21 +5,27 @@ import useCredit from "./../hooks/useCredit";
 import CastCard from "./CastCard";
 import useReview from "../hooks/useReview";
 import Review from "./Review";
+import useMovieVideo from "../hooks/useMovieVideo";
+import YoutubeFrame from "./YoutubeFrame";
+import useVideo from "../hooks/useVideo";
 
 const MiddleContainer = () => {
   const movieId = useParams();
 
   useCredit(movieId);
   useReview(movieId);
+  useVideo(movieId);
 
   const cast = useSelector((store) => store.credits.cast);
   const review = useSelector((store) => store.reviews.review);
+  const videos = useSelector((store) => store.media.videos);
   return (
     <div className="px-8 py-5">
       <h3 className="font-semibold text-2xl">Top Billed Cast</h3>
       <div className="pt-2 flex overflow-x-scroll no-scrollbar scroll-smooth ">
         {cast?.cast?.map((cast) => (
           <CastCard
+            key={cast?.id}
             img_path={cast?.profile_path}
             name={cast?.name}
             character={cast?.character}
@@ -31,6 +37,7 @@ const MiddleContainer = () => {
         <div className="overflow-y-scroll no-scrollbar scroll-smooth ">
           {review?.results?.map((review) => (
             <Review
+              key={review.id}
               userName={review?.author_details?.username}
               rating={review?.author_details?.rating}
               date={review?.created_at}
@@ -38,6 +45,13 @@ const MiddleContainer = () => {
             />
           ))}
         </div>
+      </div>
+      <div className="flex">
+        {videos?.results?.map((video) => (
+          <button>
+            <YoutubeFrame keys={video.key} mute={"&controls=1&rel=0"} />
+          </button>
+        ))}
       </div>
     </div>
   );

@@ -25,8 +25,7 @@ const TopContainer = () => {
   const movieId = useParams();
   useMovieDetails(movieId);
 
-  const details = useSelector((store) => store.moviePageDetails);
-  const cast = useSelector((store) => store.credits.cast);
+  const details = useSelector((store) => store?.moviePageDetails);
 
   const date = details.movieDetails?.release_date;
 
@@ -80,7 +79,7 @@ const TopContainer = () => {
             </div>
             <h3 className="flex ">
               {details.movieDetails?.genres.map((genre) => (
-                <Genre genre={genre?.name} />
+                <Genre key={genre?.name} genre={genre?.name} />
               ))}
             </h3>
             <div className="flex my-3">
@@ -121,7 +120,7 @@ const TopContainer = () => {
               <div className="w-full h-full absolute flex items-center">
                 <div className="w-8/12 z-10 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 absolute">
                   <VideoBackground
-                    id={details.movieDetails?.id}
+                    movieId={details?.movieDetails?.id}
                     mute={"&mute=0&controls=1&rel=0"}
                   />
                 </div>
