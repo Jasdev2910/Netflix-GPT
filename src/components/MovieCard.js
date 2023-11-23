@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IMAGE_CDN_URL } from "../utils/constants";
 import CircularRatingBar from "./CircularRatingBar";
 import dayjs from "dayjs";

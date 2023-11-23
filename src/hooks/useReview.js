@@ -19,7 +19,7 @@ const useReview = ({ movieId }) => {
   };
   useEffect(() => {
     getReview();
-  }, []);
+  }, [movieId]);
 };
 
 export default useReview;

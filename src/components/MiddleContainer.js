@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useCredit from "./../hooks/useCredit";
@@ -8,6 +8,8 @@ import Review from "./Review";
 import useMovieVideo from "../hooks/useMovieVideo";
 import YoutubeFrame from "./YoutubeFrame";
 import useVideo from "../hooks/useVideo";
+import useSimilarMovies from "../hooks/useSimilarMovies";
+import MovieList from "./MovieList";
 
 const MiddleContainer = () => {
   const movieId = useParams();
@@ -15,9 +17,11 @@ const MiddleContainer = () => {
   useCredit(movieId);
   useReview(movieId);
   useVideo(movieId);
+  useSimilarMovies(movieId);
 
   const cast = useSelector((store) => store.credits.cast);
   const review = useSelector((store) => store.reviews.review);
+  const movies = useSelector((store) => store.movies);
   const videos = useSelector((store) => store.media.videos);
   return (
     <div className="px-8 py-5">
@@ -46,12 +50,8 @@ const MiddleContainer = () => {
           ))}
         </div>
       </div>
-      <div className="flex">
-        {videos?.results?.map((video) => (
-          <button>
-            <YoutubeFrame keys={video.key} mute={"&controls=1&rel=0"} />
-          </button>
-        ))}
+      <div className=" bg-black overflow-x-scroll">
+        <MovieList title={"Similar"} movies={movies.similarMovies} />
       </div>
     </div>
   );

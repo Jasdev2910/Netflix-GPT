@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IMAGE_CDN_URL } from "./../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import Genre from "./Genre";
@@ -23,7 +23,9 @@ import {
 const TopContainer = () => {
   const [toggle, setToggle] = useState(false);
   const movieId = useParams();
+
   useMovieDetails(movieId);
+  console.log(movieId);
 
   const details = useSelector((store) => store?.moviePageDetails);
 
@@ -104,7 +106,9 @@ const TopContainer = () => {
                 <GradeOutlinedIcon fontSize="large" />
               </button>
               <button
-                onClick={handlePlay}
+                onClick={() => {
+                  handlePlay();
+                }}
                 className="text-xl transition hover:-translate-y-1 px-2 text-white rounded-lg"
               >
                 <PlayCircleOutlineOutlinedIcon fontSize="large" /> Play

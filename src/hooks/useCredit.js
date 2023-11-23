@@ -19,7 +19,7 @@ const useCredit = ({ movieId }) => {
 
   useEffect(() => {
     getCredits();
-  }, []);
+  }, [movieId]);
 };
 
 export default useCredit;
