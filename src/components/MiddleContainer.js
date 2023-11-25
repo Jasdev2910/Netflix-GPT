@@ -10,6 +10,7 @@ import YoutubeFrame from "./YoutubeFrame";
 import useVideo from "../hooks/useVideo";
 import useSimilarMovies from "../hooks/useSimilarMovies";
 import MovieList from "./MovieList";
+import useRecommendation from "../hooks/useRecommendation";
 
 const MiddleContainer = () => {
   const movieId = useParams();
@@ -18,6 +19,7 @@ const MiddleContainer = () => {
   useReview(movieId);
   useVideo(movieId);
   useSimilarMovies(movieId);
+  useRecommendation(movieId);
 
   const cast = useSelector((store) => store.credits.cast);
   const review = useSelector((store) => store.reviews.review);
@@ -50,8 +52,11 @@ const MiddleContainer = () => {
           ))}
         </div>
       </div>
-      <div className=" bg-black overflow-x-scroll">
+      <div className=" bg-black overflow-x-scroll no-scrollbar scroll-smooth">
         <MovieList title={"Similar"} movies={movies.similarMovies} />
+      </div>
+      <div className=" bg-black overflow-x-scroll no-scrollbar scroll-smooth">
+        <MovieList title={"Recommended"} movies={movies.recommended} />
       </div>
     </div>
   );
