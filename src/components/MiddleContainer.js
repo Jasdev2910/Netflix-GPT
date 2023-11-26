@@ -26,8 +26,8 @@ const MiddleContainer = () => {
   const movies = useSelector((store) => store.movies);
   const videos = useSelector((store) => store.media.videos);
   return (
-    <div className="px-8 py-5 bg-black">
-      <h3 className="font-semibold text-2xl text-white">Top Billed Cast</h3>
+    <div className="px-8 py-5 ">
+      <h3 className="font-semibold text-2xl text-black">Top Billed Cast</h3>
       <div className="pt-2 flex overflow-x-scroll no-scrollbar scroll-smooth">
         {cast?.cast?.map((cast) => (
           <CastCard
@@ -39,7 +39,7 @@ const MiddleContainer = () => {
         ))}
       </div>
       <div className="px-5 py-5 ">
-        <h2 className="font-semibold text-2xl pt-3 text-white">Social</h2>
+        <h2 className="font-semibold text-2xl pt-3 text-black">Social</h2>
         <div className="overflow-y-scroll no-scrollbar scroll-smooth ">
           {review?.results?.map((review) => (
             <Review
@@ -52,11 +52,19 @@ const MiddleContainer = () => {
           ))}
         </div>
       </div>
-      <div className=" bg-black overflow-x-scroll no-scrollbar scroll-smooth">
-        <MovieList title={"Similar"} movies={movies.similarMovies} />
+      <div className="  overflow-x-scroll no-scrollbar scroll-smooth">
+        <MovieList
+          title={"Similar"}
+          movies={movies.similarMovies}
+          textColor={"text-black"}
+        />
       </div>
-      <div className=" bg-black overflow-x-scroll no-scrollbar scroll-smooth">
-        <MovieList title={"Recommended"} movies={movies.recommended} />
+      <div className="  overflow-x-scroll no-scrollbar scroll-smooth">
+        <MovieList
+          title={"Recommended"}
+          movies={movies.recommended}
+          textColor={"text-black"}
+        />
       </div>
     </div>
   );

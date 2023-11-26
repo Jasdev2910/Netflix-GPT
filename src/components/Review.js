@@ -3,7 +3,7 @@ import { Avatar, Box, IconButton, Tooltip } from "@mui/material";
 
 const Review = ({ userName, rating, date, content }) => {
   return (
-    <div className="m-2 shadow-lg text-white">
+    <div className="m-2 shadow-lg text-black">
       <div className="flex items-center">
         <div className="py-4">
           <Box>

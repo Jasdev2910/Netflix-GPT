@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const MovieList = ({ title, movies }) => {
+const MovieList = ({ title, movies, textColor }) => {
   const showGptSearchPage = useSelector((store) => store.gpt.showGptSearchPage);
 
   return (
@@ -23,7 +23,7 @@ const MovieList = ({ title, movies }) => {
       )}
       {showGptSearchPage ? (
         <div className="flex overflow-x-scroll no-scrollbar scroll-smooth">
-          <div className="flex ">
+          <div className="flex">
             {movies?.map((movie) => (
               <Link key={movie.id} to={"/movie/" + movie.id}>
                 <MovieCard
@@ -31,6 +31,7 @@ const MovieList = ({ title, movies }) => {
                   date={movie.release_date}
                   rating={movie.vote_average.toFixed(1)}
                   poster_path={movie.poster_path}
+                  textColor={textColor}
                 />
               </Link>
             ))}
@@ -46,6 +47,7 @@ const MovieList = ({ title, movies }) => {
                   date={movie.release_date}
                   rating={movie.vote_average.toFixed(1)}
                   poster_path={movie.poster_path}
+                  textColor={textColor}
                 />
               </Link>
             ))}
