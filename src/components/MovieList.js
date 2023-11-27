@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const MovieList = ({ title, movies, textColor }) => {
+const MovieList = ({ title, movies, textColor, gradient }) => {
   const showGptSearchPage = useSelector((store) => store.gpt.showGptSearchPage);
 
   return (
@@ -15,21 +15,23 @@ const MovieList = ({ title, movies, textColor }) => {
           </h1>
         </div>
       ) : (
-        <div className="top-2 md:px-6 md:w-[180px] md:h-[350px] z-20 bg-gradient-to-r from-black from-40% via-gray-950 via-50 bg-black md:absolute text-center flex items-center bg-opacity-0">
+        <div
+          className={`top-2 md:px-6 md:w-[188px] md:h-[378px] z-20 pl-5 rounded-md bg-gradient-to-r ${gradient} md:absolute text-center flex items-center`}
+        >
           <h1 className=" text-lg md:text-3xl p-2 text-left font-bold text-red-500 z-20">
             {title}
           </h1>
         </div>
       )}
       {showGptSearchPage ? (
-        <div className="flex overflow-x-scroll no-scrollbar scroll-smooth">
+        <div className="flex overflow-x-scroll no-scrollbar scroll-smooth ">
           <div className="flex">
             {movies?.map((movie) => (
               <Link key={movie.id} to={"/movie/" + movie.id}>
                 <MovieCard
                   title={movie.title}
                   date={movie.release_date}
-                  rating={movie.vote_average.toFixed(1)}
+                  rating={movie?.vote_average}
                   poster_path={movie.poster_path}
                   textColor={textColor}
                 />
@@ -38,7 +40,7 @@ const MovieList = ({ title, movies, textColor }) => {
           </div>
         </div>
       ) : (
-        <div className="flex md:pl-[130px] overflow-x-scroll no-scrollbar scroll-smooth">
+        <div className="flex md:pl-[130px] overflow-x-scroll no-scrollbar scroll-smooth ml-5">
           <div className="flex ">
             {movies?.map((movie) => (
               <Link key={movie.id} to={"/movie/" + movie.id}>

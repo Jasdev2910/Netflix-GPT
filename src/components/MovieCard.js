@@ -7,9 +7,9 @@ const MovieCard = ({ title, date, rating, poster_path, textColor }) => {
   if (!poster_path) return null;
   return (
     <div className="">
-      <div className="w-[100px] md:w-[180px] m-2 cursor-pointer relative ">
+      <div className="w-[100px] md:w-[180px] m-2 cursor-pointer rounded-lg relative shadow-md ">
         <img
-          className="rounded-xl"
+          className="rounded-t-lg ob"
           alt="movie card"
           src={IMAGE_CDN_URL + poster_path}
         />

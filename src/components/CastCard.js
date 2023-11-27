@@ -4,7 +4,7 @@ import Avatar from "../assets/avatar.png";
 
 const CastCard = ({ img_path, name, character }) => {
   return (
-    <div className="text-black m-3 shadow-xl rounded-xl ">
+    <div className="text-black m-3 shadow-lg rounded-xl ">
       <div className="w-[120px] object-cover">
         {img_path !== null ? (
           <img

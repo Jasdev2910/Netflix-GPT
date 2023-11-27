@@ -12,21 +12,25 @@ const SecondaryContainer = () => {
           title={"Now Playing"}
           movies={movies.nowPlayingMovies}
           textColor={"text-white"}
+          gradient={"from-black from-40% via-gray-950"}
         />
         <MovieList
           title={"Top Rated"}
           movies={movies.topRatedMovies}
           textColor={"text-white"}
+          gradient={"from-black from-40% via-gray-950"}
         />
         <MovieList
           title={"Popular"}
           movies={movies.popularMovies}
           textColor={"text-white"}
+          gradient={"from-black from-40% via-gray-950"}
         />
         <MovieList
           title={"Upcoming"}
           movies={movies.upComingMovies}
           textColor={"text-white"}
+          gradient={"from-black from-40% via-gray-950"}
         />
       </div>
     </div>

@@ -87,7 +87,7 @@ const TopContainer = () => {
             <div className="flex my-3">
               <div className="w-12 py-3 mr-2">
                 <CircularRatingBar
-                  rating={details.movieDetails?.vote_average.toFixed(1)}
+                  rating={details.movieDetails?.vote_average}
                 />
               </div>
               <button

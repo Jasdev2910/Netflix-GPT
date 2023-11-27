@@ -40,7 +40,7 @@ const MiddleContainer = () => {
       </div>
       <div className="px-5 py-5 ">
         <h2 className="font-semibold text-2xl pt-3 text-black">Social</h2>
-        <div className="overflow-y-scroll no-scrollbar scroll-smooth ">
+        <div className=" w-full h-[400px] overflow-y-scroll no-scrollbar scroll-smooth ">
           {review?.results?.map((review) => (
             <Review
               key={review.id}
@@ -52,18 +52,20 @@ const MiddleContainer = () => {
           ))}
         </div>
       </div>
+      <div className="overflow-x-scroll no-scrollbar scroll-smooth">
+        <MovieList
+          title={"Recommended"}
+          movies={movies.recommended}
+          textColor={"text-black"}
+          gradient={"from-gray-300 from-40% via-gray-100"}
+        />
+      </div>
       <div className="  overflow-x-scroll no-scrollbar scroll-smooth">
         <MovieList
           title={"Similar"}
           movies={movies.similarMovies}
           textColor={"text-black"}
-        />
-      </div>
-      <div className="  overflow-x-scroll no-scrollbar scroll-smooth">
-        <MovieList
-          title={"Recommended"}
-          movies={movies.recommended}
-          textColor={"text-black"}
+          gradient={"from-gray-300 from-40% via-gray-100"}
         />
       </div>
     </div>
