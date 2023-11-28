@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
@@ -9,6 +9,7 @@ import useUpcomimgMovies from "../hooks/useUpcomimgMovies";
 import GptSearchPage from "./GptSearchPage";
 import { useDispatch, useSelector } from "react-redux";
 import { removeMovieDetails } from "../utils/slices/moviePageSlice";
+import { toggleToGptPage } from "../utils/slices/gptSlice";
 
 const Browse = () => {
   const toggledValue = useSelector((store) => store.gpt.showGptSearchPage);
@@ -16,20 +17,19 @@ const Browse = () => {
   usePopularMovies();
   useTopRatedMovies();
   useUpcomimgMovies();
-  // const dispatch = useDispatch();
-  // dispatch(removeMovieDetails());
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("hello");
+    dispatch(toggleToGptPage());
+  }, []);
 
   return (
     <div>
       <Header />
-      {toggledValue ? (
-        <GptSearchPage />
-      ) : (
-        <>
-          <MainContainer />
-          <SecondaryContainer />
-        </>
-      )}
+
+      <MainContainer />
+      <SecondaryContainer />
     </div>
   );
 };

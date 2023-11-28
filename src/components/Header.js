@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Logo from "../assets/netflix-logo.png";
 import { Avatar, Box, IconButton, ListItem, Tooltip } from "@mui/material";
 import { Logout } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,13 +33,13 @@ const Header = () => {
             photoURL: photoURL,
           })
         );
-        navigate("/browse");
       } else {
         // User is signed out
         dispatch(removeUser());
         navigate("/");
       }
     });
+    handleGptSearchClick();
     // unsubscribe when component unmounts
     return () => unsubsrcibe();
   }, []);
@@ -88,12 +88,26 @@ const Header = () => {
               </select>
             </div>
           )}
-          <div
-            onClick={handleGptSearchClick}
-            className=" px-2 py-1 md:px-4 md:py-1 md:mr-2 font-medium text-xs md:text-base bg-green-400 text-black rounded-lg flex cursor-pointer hover:bg-green-500"
-          >
-            <button>{isGptPageActive ? "Home" : "GPT Search"}</button>
-          </div>
+          {isGptPageActive ? (
+            <Link to="/browse">
+              <div
+                onClick={handleGptSearchClick}
+                className=" px-2 py-1 md:px-4 md:py-1 md:mr-2 font-medium text-xs md:text-base bg-green-400 text-black rounded-lg flex cursor-pointer hover:bg-green-500"
+              >
+                <button>Home</button>
+              </div>
+            </Link>
+          ) : (
+            <Link to="/gptSearch">
+              <div
+                onClick={handleGptSearchClick}
+                className=" px-2 py-1 md:px-4 md:py-1 md:mr-2 font-medium text-xs md:text-base bg-green-400 text-black rounded-lg flex cursor-pointer hover:bg-green-500"
+              >
+                <button>GPT Search</button>
+              </div>
+            </Link>
+          )}
+
           <div className="text-sm">
             <Box>
               <Tooltip>
