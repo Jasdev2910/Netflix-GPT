@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useCredit from "./../hooks/useCredit";
 import CastCard from "./CastCard";
@@ -22,7 +22,7 @@ const MiddleContainer = () => {
   useRecommendation(movieId);
 
   const cast = useSelector((store) => store.credits.cast);
-  const review = useSelector((store) => store.reviews.review.results[0]);
+  const review = useSelector((store) => store.reviews?.review?.results[0]);
   const movies = useSelector((store) => store.movies);
   const videos = useSelector((store) => store.media.videos);
   return (
@@ -42,13 +42,15 @@ const MiddleContainer = () => {
         <h2 className="font-semibold text-2xl pt-3 text-black">Social</h2>
         <div className=" w-full overflow-y-scroll no-scrollbar scroll-smooth ">
           <Review
-            key={review.id}
+            key={review?.id}
             userName={review?.author_details?.username}
             rating={review?.author_details?.rating}
             date={review?.created_at}
             content={review?.content}
           />
-          <button>View All...</button>
+          <Link to="/review">
+            <button>View All...</button>
+          </Link>
         </div>
       </div>
       <div className="overflow-x-scroll no-scrollbar scroll-smooth">

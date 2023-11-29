@@ -10,7 +10,7 @@ const Review = ({ userName, rating, date, content }) => {
             <Tooltip>
               <IconButton>
                 <Avatar className="" sx={{ width: 40, height: 40 }}>
-                  {userName.at(0)}
+                  {userName?.at(0)}
                 </Avatar>
               </IconButton>
             </Tooltip>
