@@ -122,7 +122,7 @@ const TopContainer = () => {
           {toggle && (
             <>
               <div className="w-full h-full absolute flex items-center">
-                <div className="w-8/12 z-10 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 absolute">
+                <div className="w-8/12 z-30 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 absolute">
                   <VideoBackground
                     movieId={details?.movieDetails?.id}
                     mute={"&mute=0&controls=1&rel=0"}
@@ -130,9 +130,9 @@ const TopContainer = () => {
                 </div>
                 <div
                   onClick={handlePause}
-                  className="w-full h-full flex text-white bg-black bg-opacity-90 -z-0 absolute"
+                  className="w-full h-screen flex text-white bg-black bg-opacity-95 z-20 absolute"
                 >
-                  <h2 className="pt-4 pl-8 font-medium text-xl">
+                  <h2 className="pt-8 pl-8 font-medium text-xl">
                     Movie Trailer
                   </h2>
                   <button className="absolute transition hover:-translate-y-1 p-8 right-0">

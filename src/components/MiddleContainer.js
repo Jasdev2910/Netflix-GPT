@@ -22,7 +22,7 @@ const MiddleContainer = () => {
   useRecommendation(movieId);
 
   const cast = useSelector((store) => store.credits.cast);
-  const review = useSelector((store) => store.reviews.review);
+  const review = useSelector((store) => store.reviews.review.results[0]);
   const movies = useSelector((store) => store.movies);
   const videos = useSelector((store) => store.media.videos);
   return (
@@ -40,16 +40,15 @@ const MiddleContainer = () => {
       </div>
       <div className="px-5 py-5 ">
         <h2 className="font-semibold text-2xl pt-3 text-black">Social</h2>
-        <div className=" w-full h-[400px] overflow-y-scroll no-scrollbar scroll-smooth ">
-          {review?.results?.map((review) => (
-            <Review
-              key={review.id}
-              userName={review?.author_details?.username}
-              rating={review?.author_details?.rating}
-              date={review?.created_at}
-              content={review?.content}
-            />
-          ))}
+        <div className=" w-full overflow-y-scroll no-scrollbar scroll-smooth ">
+          <Review
+            key={review.id}
+            userName={review?.author_details?.username}
+            rating={review?.author_details?.rating}
+            date={review?.created_at}
+            content={review?.content}
+          />
+          <button>View All...</button>
         </div>
       </div>
       <div className="overflow-x-scroll no-scrollbar scroll-smooth">

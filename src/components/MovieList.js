@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 
 const MovieList = ({ title, movies, textColor, gradient }) => {
   const showGptSearchPage = useSelector((store) => store.gpt.showGptSearchPage);
+  const path = useSelector((store) => store.path.path);
 
   return (
     <div className="relative  md:mb-5">
-      {showGptSearchPage ? (
+      {path === "/gptSearch" ? (
         <div className="bg-black text-center flex items-center bg-opacity-0">
           <h1 className=" text-lg md:text-3xl p-2 text-left font-bold text-red-500">
             {title}
@@ -23,7 +24,7 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
           </h1>
         </div>
       )}
-      {showGptSearchPage ? (
+      {path === "/gptSearch" ? (
         <div className="flex overflow-x-scroll no-scrollbar scroll-smooth ">
           <div className="flex">
             {movies?.map((movie) => (

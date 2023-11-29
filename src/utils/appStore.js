@@ -7,6 +7,7 @@ import moviePageReducer from "./slices/moviePageSlice";
 import credits from "./slices/creditsSlice";
 import reviewReducer from "./slices/reviewSlice";
 import mediaReducer from "./slices/mediaSlice";
+import pathReducer from "./slices/pathSlice";
 
 const appStore = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const appStore = configureStore({
     credits: credits,
     reviews: reviewReducer,
     media: mediaReducer,
+    path: pathReducer,
   },
 });
 

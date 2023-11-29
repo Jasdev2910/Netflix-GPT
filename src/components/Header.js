@@ -18,8 +18,7 @@ const Header = () => {
   const isGptPageActive = useSelector((store) => store.gpt.showGptSearchPage);
 
   const user = useSelector((store) => store.user);
-  // const avatarAlphabet =
-  //   user.displayName === null ? user.displayName : user.displayName.at(0);
+  const path = useSelector((store) => store.path.path);
 
   useEffect(() => {
     const unsubsrcibe = onAuthStateChanged(auth, (user) => {
@@ -74,7 +73,7 @@ const Header = () => {
       </div>
       {user && (
         <div className="flex items-center justify-between">
-          {isGptPageActive && (
+          {path === "/gptSearch" && (
             <div>
               <select
                 className="p-1 mr-2 md:p-2 md:mr-4 rounded-md bg-gray-900 text-white hover:bg-slate-700"
@@ -88,7 +87,7 @@ const Header = () => {
               </select>
             </div>
           )}
-          {isGptPageActive ? (
+          {path === "/gptSearch" ? (
             <Link to="/browse">
               <div
                 onClick={handleGptSearchClick}
