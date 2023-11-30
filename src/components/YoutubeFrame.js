@@ -4,7 +4,7 @@ const YoutubeFrame = ({ keys, mute }) => {
   console.log(keys);
   console.log(mute);
   return (
-    <div className=" w-full">
+    <div className=" w-full ">
       <iframe
         className="w-full  aspect-video bg-gradient-to-t from-black"
         showinfo="0"

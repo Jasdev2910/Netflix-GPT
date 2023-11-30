@@ -54,20 +54,20 @@ const TopContainer = () => {
     <div>
       <div className="relative">
         <img
-          className="w-full h-full absolute object-cover -z-10"
+          className="w-full h-screen absolute object-cover -z-10"
           alt="backdropImg"
           src={IMAGE_CDN_URL + details.movieDetails?.backdrop_path}
         />
-        <div className="w-full h-full absolute -z-10 bg-black bg-opacity-80"></div>
+        <div className="w-full h-screen absolute -z-10 bg-black bg-opacity-80"></div>
         <div className="w-full h-full flex ">
-          <div className="w-4/12 p-20 flex">
+          <div className="w-4/12 p-20 flex pt-[130px]">
             <img
               className="mx-auto rounded-lg"
               alt="moviePoster"
               src={IMAGE_CDN_URL + details.movieDetails?.poster_path}
             />
           </div>
-          <div className="w-8/12 pt-20 text-white">
+          <div className="w-8/12 pt-[140px] text-white">
             <h1 className=" text-3xl font-semibold">
               {details.movieDetails?.original_title}
             </h1>
@@ -121,7 +121,7 @@ const TopContainer = () => {
           </div>
           {toggle && (
             <>
-              <div className="w-full h-full absolute flex items-center">
+              <div className="w-full h-screen absolute flex items-center">
                 <div className="w-8/12 z-30 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 absolute">
                   <VideoBackground
                     movieId={details?.movieDetails?.id}
