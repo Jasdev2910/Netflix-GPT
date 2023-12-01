@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeMovieDetails } from "../utils/slices/moviePageSlice";
 import { toggleToGptPage } from "../utils/slices/gptSlice";
 import { addPath } from "../utils/slices/pathSlice";
+import Footer from "./Footer";
 
 const Browse = () => {
   const toggledValue = useSelector((store) => store.gpt.showGptSearchPage);
@@ -35,6 +36,8 @@ const Browse = () => {
 
       <MainContainer />
       <SecondaryContainer />
+
+      <Footer />
     </div>
   );
 };

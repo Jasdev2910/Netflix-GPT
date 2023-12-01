@@ -26,7 +26,7 @@ const MiddleContainer = () => {
   const movies = useSelector((store) => store.movies);
   const videos = useSelector((store) => store.media.videos);
   return (
-    <div className="px-8 py-10 ">
+    <div className="px-8 py-10">
       <h3 className="font-semibold text-2xl text-black">Top Billed Cast</h3>
       <div className="pt-2 flex overflow-x-scroll no-scrollbar scroll-smooth">
         {cast?.cast?.map((cast) => (
