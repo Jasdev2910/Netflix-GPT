@@ -11,7 +11,7 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
     <div className="relative  md:mb-5">
       {path === "/gptSearch" ? (
         <div className="bg-black text-center flex items-center bg-opacity-0">
-          <h1 className=" text-lg md:text-3xl p-2 text-left font-bold text-red-500">
+          <h1 className=" text-lg md:text-3xl p-2 text-left font-bold text-[#8ecae6]">
             {title}
           </h1>
         </div>
@@ -35,13 +35,14 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
                   rating={movie?.vote_average}
                   poster_path={movie.poster_path}
                   textColor={textColor}
+                  bgColor={"bg-[#023050]"}
                 />
               </Link>
             ))}
           </div>
         </div>
       ) : (
-        <div className="flex md:pl-[130px] overflow-x-scroll no-scrollbar scroll-smooth ml-5">
+        <div className="flex md:pl-[130px] overflow-x-scroll no-scrollbar scroll-smooth ml-5 ">
           <div className="flex ">
             {movies?.map((movie) => (
               <Link key={movie.id} to={"/movie/" + movie.id}>
@@ -51,6 +52,7 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
                   rating={movie.vote_average.toFixed(1)}
                   poster_path={movie.poster_path}
                   textColor={textColor}
+                  bgColor={"opacity-100"}
                 />
               </Link>
             ))}

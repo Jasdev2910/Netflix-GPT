@@ -3,7 +3,7 @@ import TopContainer from "./TopContainer";
 import MiddleContainer from "./MiddleContainer";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPath } from "../utils/slices/pathSlice";
 
 const Movie = () => {
@@ -19,6 +19,7 @@ const Movie = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [movieId]);
+
   return (
     <div className="">
       <Header />

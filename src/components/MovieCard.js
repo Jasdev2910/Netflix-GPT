@@ -3,11 +3,20 @@ import { IMAGE_CDN_URL } from "../utils/constants";
 import CircularRatingBar from "./CircularRatingBar";
 import dayjs from "dayjs";
 
-const MovieCard = ({ title, date, rating, poster_path, textColor }) => {
+const MovieCard = ({
+  title,
+  date,
+  rating,
+  poster_path,
+  textColor,
+  bgColor,
+}) => {
   if (!poster_path) return null;
   return (
     <div className="">
-      <div className="w-[100px] md:w-[180px] m-2 cursor-pointer rounded-lg relative shadow-md ">
+      <div
+        className={`w-[100px] md:w-[180px] ${bgColor}  m-2 cursor-pointer rounded-lg relative shadow-md `}
+      >
         <img
           className="rounded-t-lg ob"
           alt="movie card"
