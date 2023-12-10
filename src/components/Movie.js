@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
 import { addPath } from "../utils/slices/pathSlice";
+import Footer from "./Footer";
 
 const Movie = () => {
   const movieId = useParams();

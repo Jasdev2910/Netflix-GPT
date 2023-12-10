@@ -4,6 +4,7 @@ import GptMovieSuggestions from "./GptMovieSuggestions";
 import Header from "./Header";
 import { useDispatch } from "react-redux";
 import { addPath } from "../utils/slices/pathSlice";
+import Footer from "./Footer";
 
 const GptSearchPage = () => {
   const pathname = window.location.pathname;
