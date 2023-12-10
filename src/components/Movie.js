@@ -25,6 +25,7 @@ const Movie = () => {
       <Header />
       <TopContainer />
       <MiddleContainer />
+      <Footer />
     </div>
   );
 };

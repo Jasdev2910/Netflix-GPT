@@ -17,6 +17,7 @@ const GptSearchPage = () => {
       <Header />
       <GptSearchBar />
       <GptMovieSuggestions />
+      <Footer />
     </div>
   );
 };
