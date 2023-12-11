@@ -14,7 +14,7 @@ const GptSearchPage = () => {
   dispatch(addPath(window.location.pathname));
 
   return (
-    <div className="w-full h-full bg-[#8ecae6]">
+    <div className="min-h-screen flex flex-col bg-[#023047]">
       <Header />
       <GptSearchBar />
       <GptMovieSuggestions />

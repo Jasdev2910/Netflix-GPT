@@ -34,7 +34,7 @@ const Browse = () => {
   }, []);
 
   return (
-    <div>
+    <div className="w-full h-full">
       <Header />
 
       <MainContainer />

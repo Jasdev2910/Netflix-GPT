@@ -47,9 +47,12 @@ const MiddleContainer = () => {
             rating={review?.author_details?.rating}
             date={review?.created_at}
             content={review?.content}
+            lineClamp={"line-clamp-4"}
           />
           <Link to="/review">
-            <button>View All...</button>
+            <button className="px-2 py-2 ml-2 text-sm bg-[#b5e2fa] rounded-lg">
+              View All...
+            </button>
           </Link>
         </div>
       </div>

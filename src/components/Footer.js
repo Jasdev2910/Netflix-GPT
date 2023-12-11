@@ -4,7 +4,7 @@ import Logo from "../assets/netflix-logo.png";
 const Footer = () => {
   const date = new Date().getFullYear();
   return (
-    <div className=" p-10 w-[100%] h-[190px] bg-[#343a40] ">
+    <div className=" p-10 w-[100%] bg-[#343a40] ">
       <div className="flex justify-evenly list-none text-gray-300">
         <div className="">
           <img className="w-36" src={Logo} alt="logo" />

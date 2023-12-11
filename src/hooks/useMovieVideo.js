@@ -31,7 +31,7 @@ const useMovieVideo = (movieId) => {
 
   useEffect(() => {
     getMovieVideos();
-  }, []);
+  }, [movieId]);
 };
 
 export default useMovieVideo;
