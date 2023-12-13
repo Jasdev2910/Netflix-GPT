@@ -17,7 +17,7 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
         </div>
       ) : (
         <div
-          className={`top-2 md:px-6 md:w-[188px] md:h-[378px] z-20 pl-5 rounded-md bg-gradient-to-r ${gradient} md:absolute text-center flex items-center`}
+          className={`top-2 md:px-6 md:w-[188px] md:h-[378px] z-20 rounded-md bg-gradient-to-r ${gradient} md:absolute text-center flex items-center`}
         >
           <h1 className=" text-lg md:text-3xl p-2 text-left font-bold text-red-500 z-20">
             {title}
@@ -42,7 +42,7 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
           </div>
         </div>
       ) : (
-        <div className="flex md:pl-[130px] overflow-x-scroll no-scrollbar scroll-smooth ml-5 ">
+        <div className="flex md:pl-[130px] overflow-x-scroll no-scrollbar scroll-smooth ml-2 ">
           <div className="flex ">
             {movies?.map((movie) => (
               <Link key={movie.id} to={"/movie/" + movie.id}>
