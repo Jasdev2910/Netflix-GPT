@@ -19,21 +19,20 @@ import {
   removeFavouriteMovie,
   removeWatchlist,
 } from "../utils/slices/moviesSlice";
+import Shimmer from "./Shimmer";
+import { addMovieClicked } from "../utils/slices/moviePageSlice";
 
 const TopContainer = () => {
   const [toggle, setToggle] = useState(false);
   const movieId = useParams();
-
-  useMovieDetails(movieId);
-  console.log(movieId);
-
   const details = useSelector((store) => store?.moviePageDetails);
+  const dispatch = useDispatch();
+  // dispatch(addMovieClicked(movieId));
 
   const date = details.movieDetails?.release_date;
 
   const hours = Math.floor(details.movieDetails?.runtime / 60);
   const minutes = Math.floor(details.movieDetails?.runtime % 60);
-  const dispatch = useDispatch();
 
   const handlePlay = () => {
     setToggle(!toggle);

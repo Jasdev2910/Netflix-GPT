@@ -1,11 +1,13 @@
 import React from "react";
 import MovieCard from "./MovieCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addMovieClicked } from "../utils/slices/moviePageSlice";
 
 const MovieList = ({ title, movies, textColor, gradient }) => {
   const showGptSearchPage = useSelector((store) => store.gpt.showGptSearchPage);
   const path = useSelector((store) => store.path.path);
+  const dispatch = useDispatch();
 
   return (
     <div className="relative  md:mb-5">
@@ -29,14 +31,21 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
           <div className="flex">
             {movies?.map((movie) => (
               <Link key={movie.id} to={"/movie/" + movie.id}>
-                <MovieCard
-                  title={movie.title}
-                  date={movie.release_date}
-                  rating={movie?.vote_average}
-                  poster_path={movie.poster_path}
-                  textColor={textColor}
-                  bgColor={"bg-[#023050]"}
-                />
+                <div
+                // onClick={() => {
+                //   dispatch(addMovieClicked(movie.id));
+                // }}
+                >
+                  <MovieCard
+                    title={movie.title}
+                    movieId={movie?.id}
+                    date={movie.release_date}
+                    rating={movie?.vote_average}
+                    poster_path={movie.poster_path}
+                    textColor={textColor}
+                    bgColor={"bg-[#023050]"}
+                  />
+                </div>
               </Link>
             ))}
           </div>
@@ -45,9 +54,16 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
         <div className="flex md:pl-[130px] overflow-x-scroll no-scrollbar scroll-smooth ml-2 ">
           <div className="flex ">
             {movies?.map((movie) => (
-              <Link key={movie.id} to={"/movie/" + movie.id}>
+              <Link
+                // onClick={() => {
+                //   dispatch(addMovieClicked(movie.id));
+                // }}
+                key={movie.id}
+                to={"/movie/" + movie.id}
+              >
                 <MovieCard
                   title={movie.title}
+                  movieId={movie?.id}
                   date={movie.release_date}
                   rating={movie.vote_average.toFixed(1)}
                   poster_path={movie.poster_path}

@@ -1,8 +1,6 @@
 import React from "react";
 
 const YoutubeFrame = ({ keys, mute }) => {
-  console.log(keys);
-  console.log(mute);
   return (
     <div className=" w-full ">
       <iframe

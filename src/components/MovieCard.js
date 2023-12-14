@@ -2,9 +2,13 @@ import React, { useEffect } from "react";
 import { IMAGE_CDN_URL } from "../utils/constants";
 import CircularRatingBar from "./CircularRatingBar";
 import dayjs from "dayjs";
+import { useDispatch, useSelector } from "react-redux";
+import { addMovieClicked } from "../utils/slices/moviePageSlice";
+import { useParams } from "react-router-dom";
 
 const MovieCard = ({
   title,
+  movieId,
   date,
   rating,
   poster_path,
@@ -35,7 +39,6 @@ const MovieCard = ({
         >
           {dayjs(date).format("MMM D, YYYY")}
         </p>
-        <div></div>
       </div>
     </div>
   );

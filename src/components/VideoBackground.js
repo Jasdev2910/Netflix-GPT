@@ -6,7 +6,6 @@ import YoutubeFrame from "./YoutubeFrame";
 const VideoBackground = ({ movieId, mute }) => {
   const movieTrailer = useSelector((store) => store.movies?.movieTrailer);
   const keys = movieTrailer?.key;
-  console.log(keys);
 
   useMovieVideo(movieId);
 

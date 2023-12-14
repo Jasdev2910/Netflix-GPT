@@ -25,10 +25,8 @@ const Browse = () => {
   const dispatch = useDispatch();
 
   const pathname = window.location.pathname;
-  console.log(pathname);
 
   useEffect(() => {
-    console.log("hello");
     dispatch(toggleToGptPage());
     dispatch(addPath(pathname));
   }, []);

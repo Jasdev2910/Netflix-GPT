@@ -14,6 +14,7 @@ const useReview = ({ movieId }) => {
       API_OPTIONS
     );
     const json = await data.json();
+    console.log(json, json.results);
 
     dispatch(addReview(json));
   };
