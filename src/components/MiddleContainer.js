@@ -40,7 +40,7 @@ const MiddleContainer = () => {
       </div>
       <div className="py-3 md:px-5 md:py-5 ">
         <h2 className="font-semibold text-2xl md:pt-3 text-black">Social</h2>
-        <div className="w-full overflow-y-scroll no-scrollbar scroll-smooth flex flex-col items-center">
+        <div className="w-full flex flex-col items-center">
           <Review
             key={review?.id}
             userName={review?.author_details?.username}

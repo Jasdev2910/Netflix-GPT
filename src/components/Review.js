@@ -28,7 +28,7 @@ const Review = ({ userName, rating, date, content, lineClamp }) => {
   ) : (
     <div
       onClick={handleLineClamp}
-      className="m-2 md:m-5 py-1 px-1 shadow-xl md:py-4 md:px-3 bg-white rounded-lg"
+      className="w-full my-3 md:my-5 py-1 px-1 shadow-xl md:py-4 md:px-3 bg-white rounded-lg"
     >
       <div className="flex md:items-center md:justify-between">
         <div className="flex ">
