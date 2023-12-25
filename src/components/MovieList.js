@@ -39,9 +39,9 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
                   <MovieCard
                     title={movie.title}
                     movieId={movie?.id}
-                    date={movie.release_date}
-                    rating={movie?.vote_average}
-                    poster_path={movie.poster_path}
+                    date={movie?.release_date}
+                    rating={movie?.vote_average.toFixed(1)}
+                    poster_path={movie?.poster_path}
                     textColor={textColor}
                     bgColor={"bg-[#023050]"}
                   />
@@ -64,9 +64,9 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
                 <MovieCard
                   title={movie.title}
                   movieId={movie?.id}
-                  date={movie.release_date}
-                  rating={movie.vote_average.toFixed(1)}
-                  poster_path={movie.poster_path}
+                  date={movie?.release_date}
+                  rating={movie?.vote_average.toFixed(1)}
+                  poster_path={movie?.poster_path}
                   textColor={textColor}
                   bgColor={"opacity-100"}
                 />

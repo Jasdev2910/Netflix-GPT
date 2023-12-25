@@ -2,7 +2,7 @@ import React from "react";
 
 const YoutubeFrame = ({ keys, mute }) => {
   return (
-    <div className=" w-full ">
+    <div className=" w-full">
       <iframe
         className="w-full  aspect-video bg-gradient-to-t from-black"
         showinfo="0"

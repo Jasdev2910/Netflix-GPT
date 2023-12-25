@@ -10,7 +10,7 @@ const VideoBackground = ({ movieId, mute }) => {
   useMovieVideo(movieId);
 
   return (
-    <div>
+    <div className="">
       <YoutubeFrame keys={keys} mute={mute} />
     </div>
   );

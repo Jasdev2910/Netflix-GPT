@@ -6,9 +6,7 @@ import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomimgMovies from "../hooks/useUpcomimgMovies";
-import GptSearchPage from "./GptSearchPage";
 import { useDispatch, useSelector } from "react-redux";
-import { removeMovieDetails } from "../utils/slices/moviePageSlice";
 import { toggleToGptPage } from "../utils/slices/gptSlice";
 import { addPath } from "../utils/slices/pathSlice";
 import Footer from "./Footer";
@@ -16,7 +14,9 @@ import Shimmer from "./Shimmer";
 
 const Browse = () => {
   const toggledValue = useSelector((store) => store.gpt.showGptSearchPage);
-  const trailer = useSelector((store) => store.movies.movieTrailer);
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies.nowPlayingMovies
+  );
 
   useNowPlayingMovies();
   usePopularMovies();
@@ -31,7 +31,9 @@ const Browse = () => {
     dispatch(addPath(pathname));
   }, []);
 
-  return (
+  return nowPlayingMovies === null ? (
+    <Shimmer />
+  ) : (
     <div className="w-full h-full">
       <Header />
 

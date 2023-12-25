@@ -16,9 +16,11 @@ const MainContainer = () => {
   const overview = mainMovie?.overview;
 
   return (
-    <div>
+    <div className="">
       <VideoTitle title={original_title} overview={overview} />
-      <VideoBackground movieId={id} mute={"&mute=1&controls=0&rel=0"} />
+      <div className="">
+        <VideoBackground movieId={id} mute={"&mute=1&controls=0&rel=0"} />
+      </div>
     </div>
   );
 };
