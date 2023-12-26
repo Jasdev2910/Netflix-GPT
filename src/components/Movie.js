@@ -34,10 +34,8 @@ const Movie = () => {
     <Shimmer />
   ) : (
     <div className="">
-      <Header />
       <TopContainer />
       <MiddleContainer />
-      <Footer />
     </div>
   );
 };

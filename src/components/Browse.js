@@ -35,12 +35,8 @@ const Browse = () => {
     <Shimmer />
   ) : (
     <div className="w-full h-full">
-      <Header />
-
       <MainContainer />
       <SecondaryContainer />
-
-      <Footer />
     </div>
   );
 };

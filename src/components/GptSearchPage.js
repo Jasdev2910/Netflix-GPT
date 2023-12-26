@@ -15,10 +15,8 @@ const GptSearchPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#023047]">
-      <Header />
       <GptSearchBar />
       <GptMovieSuggestions />
-      <Footer />
     </div>
   );
 };

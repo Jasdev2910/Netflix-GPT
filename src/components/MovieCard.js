@@ -27,7 +27,7 @@ const MovieCard = ({
           src={IMAGE_CDN_URL + poster_path}
         />
         <div className="relative left-1 bottom-4 md:left-2 md:bottom-8 w-8 md:w-14 bg-gray-900 rounded-full ">
-          <CircularRatingBar rating={rating} />
+          <CircularRatingBar rating={rating.at()} />
         </div>
         <h3
           className={`${textColor} bottom-4 relative md:bottom-7 md:left-2 text-sm md:text-base line-clamp-1`}

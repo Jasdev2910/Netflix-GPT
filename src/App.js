@@ -1,16 +1,17 @@
-import { Provider } from "react-redux";
-import "./App.css";
-import Body from "./components/Body";
-import appStore from "./utils/appStore";
+import React, { useEffect } from "react";
 
-function App() {
+import { Outlet, useNavigate } from "react-router-dom";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+
+const App = () => {
   return (
-    <div>
-      <Provider store={appStore}>
-        <Body />
-      </Provider>
-    </div>
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;

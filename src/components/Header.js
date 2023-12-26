@@ -32,6 +32,7 @@ const Header = () => {
             photoURL: photoURL,
           })
         );
+        navigate("/browse");
       } else {
         // User is signed out
         dispatch(removeUser());
