@@ -7,8 +7,6 @@ const VideoBackground = ({ movieId, mute }) => {
   const movieTrailer = useSelector((store) => store.movies?.movieTrailer);
   const keys = movieTrailer?.key;
 
-  useMovieVideo(movieId);
-
   return (
     <div className="">
       <YoutubeFrame keys={keys} mute={mute} />

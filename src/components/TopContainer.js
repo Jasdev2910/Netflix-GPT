@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { IMAGE_CDN_URL } from "./../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import Genre from "./Genre";
@@ -11,23 +11,18 @@ import GradeOutlinedIcon from "@mui/icons-material/GradeOutlined";
 import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
 import VideoBackground from "./VideoBackground";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
-import useMovieDetails from "../hooks/useMovieDetails";
-
 import {
   addFavouriteMovie,
   addWatchlist,
   removeFavouriteMovie,
   removeWatchlist,
 } from "../utils/slices/moviesSlice";
-import Shimmer from "./Shimmer";
-import { addMovieClicked } from "../utils/slices/moviePageSlice";
 
 const TopContainer = () => {
   const [toggle, setToggle] = useState(false);
   const movieId = useParams();
   const details = useSelector((store) => store?.moviePageDetails);
   const dispatch = useDispatch();
-  // dispatch(addMovieClicked(movieId));
 
   const date = details.movieDetails?.release_date;
 

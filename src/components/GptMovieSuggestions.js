@@ -7,8 +7,6 @@ const GptMovieSuggestions = () => {
 
   if (!movieNames) return null;
 
-  console.log(movieResults);
-
   return (
     <div className="-mt-16  p-2  md:p-4 relative">
       {movieNames.map((movieName, index) => (
