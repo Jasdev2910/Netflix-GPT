@@ -11,6 +11,8 @@ import Comments from "./components/Comments";
 import Login from "./components/Login";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Favourites from "./components/Favourites";
+import Watchlist from "./components/Watchlist";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
       },
       { path: "gptSearch", element: <GptSearchPage /> },
       { path: "review", element: <Comments /> },
+      { path: "favourite", element: <Favourites /> },
+      { path: "watchlist", element: <Watchlist /> },
     ],
   },
 ]);

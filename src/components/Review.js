@@ -30,7 +30,7 @@ const Review = ({ userName, rating, date, content, lineClamp }) => {
       onClick={handleLineClamp}
       className="w-full my-3 md:my-5 py-1 px-1 shadow-xl md:py-4 md:px-3 bg-white rounded-lg"
     >
-      <div className="flex md:items-center md:justify-between">
+      <div className="flex md:items-center justify-between">
         <div className="flex ">
           <div className="md:pb-2">
             <Box>
@@ -48,7 +48,7 @@ const Review = ({ userName, rating, date, content, lineClamp }) => {
             <p className="font-light text-sm">{formattedDate}</p>
           </div>
         </div>
-        <div className="relative top-7 md:top-0 md:ml-0 md:mr-5">
+        <div className="relative pr-5 top-7 md:top-0 md:ml-0 md:mr-5">
           <Rating name="read-only" value={rating} readOnly />
         </div>
       </div>

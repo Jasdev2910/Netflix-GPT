@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
+import { toast } from "react-toastify";
+
+const notifyFavourite = () => toast("Added to favourites");
+const notifyFavouriteAlert = () => toast("Already in Favourites");
+const notifyWatchlist = () => toast("Added to Watchlist");
+const notifyWatchlistAlert = () => toast("Already in Watchlist");
 
 const moviesSlice = createSlice({
   name: "movies",
@@ -42,9 +47,10 @@ const moviesSlice = createSlice({
       );
 
       if (find >= 0) {
-        alert("Already in Favourites");
+        notifyFavouriteAlert();
       } else {
         state.favourites.push(action.payload);
+        notifyFavourite();
       }
     },
     removeFavouriteMovie: (state, action) => {
@@ -58,9 +64,10 @@ const moviesSlice = createSlice({
       );
 
       if (find >= 0) {
-        alert("Already in Watchlist");
+        notifyWatchlistAlert();
       } else {
         state.watchList.push(action.payload);
+        notifyWatchlist();
       }
     },
     removeWatchlist: (state, action) => {

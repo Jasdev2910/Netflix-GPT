@@ -31,11 +31,7 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
           <div className="flex">
             {movies?.map((movie) => (
               <Link key={movie.id} to={"/movie/" + movie.id}>
-                <div
-                // onClick={() => {
-                //   dispatch(addMovieClicked(movie.id));
-                // }}
-                >
+                <div>
                   <MovieCard
                     title={movie.title}
                     movieId={movie?.id}
@@ -54,13 +50,7 @@ const MovieList = ({ title, movies, textColor, gradient }) => {
         <div className="flex md:pl-[130px] overflow-x-scroll no-scrollbar scroll-smooth ml-2 ">
           <div className="flex ">
             {movies?.map((movie) => (
-              <Link
-                // onClick={() => {
-                //   dispatch(addMovieClicked(movie.id));
-                // }}
-                key={movie.id}
-                to={"/movie/" + movie.id}
-              >
+              <Link key={movie.id} to={"/movie/" + movie.id}>
                 <MovieCard
                   title={movie.title}
                   movieId={movie?.id}

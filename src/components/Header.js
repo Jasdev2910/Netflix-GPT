@@ -10,6 +10,9 @@ import { addUser, removeUser } from "../utils/slices/userSlice";
 import { toggleToGptPage } from "../utils/slices/gptSlice";
 import { SUPPORTED_LANG } from "../utils/constants";
 import { changeLanguage } from "../utils/slices/configSlice";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
+import HomeIcon from "@mui/icons-material/Home";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -120,7 +123,7 @@ const Header = () => {
             </Box>
 
             {isOpen && (
-              <div className="bg-white md:w-[100px] right-6 absolute rounded-md">
+              <div className="bg-white md:w-[120px] right-6 absolute rounded-md">
                 <ListItem
                   onClick={handleSignOut}
                   className="cursor-pointer hover:bg-slate-300 hover:rounded-md"
@@ -128,6 +131,24 @@ const Header = () => {
                   <Logout />
                   Logout
                 </ListItem>
+                <Link to="/favourite">
+                  <ListItem className="cursor-pointer hover:bg-slate-300 hover:rounded-md">
+                    <FavoriteBorderIcon />
+                    Favourites
+                  </ListItem>
+                </Link>
+                <Link to="/watchlist">
+                  <ListItem className="cursor-pointer hover:bg-slate-300 hover:rounded-md">
+                    <BookmarkAddOutlinedIcon />
+                    Watchlist
+                  </ListItem>
+                </Link>
+                <Link to="/browse">
+                  <ListItem className="cursor-pointer hover:bg-slate-300 hover:rounded-md">
+                    <HomeIcon />
+                    Home
+                  </ListItem>
+                </Link>
               </div>
             )}
           </div>
