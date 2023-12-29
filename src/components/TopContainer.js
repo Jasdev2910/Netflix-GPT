@@ -39,11 +39,9 @@ const TopContainer = () => {
 
   const addToFavourite = () => {
     dispatch(addFavouriteMovie(details.movieDetails));
-    dispatch(removeFavouriteMovie(details.movieDetails?.id));
   };
   const addTowatchList = () => {
     dispatch(addWatchlist(details.movieDetails));
-    dispatch(removeWatchlist(details.movieDetails?.id));
   };
   return (
     <div>

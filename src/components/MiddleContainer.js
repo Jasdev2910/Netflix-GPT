@@ -24,6 +24,7 @@ const MiddleContainer = () => {
   const cast = useSelector((store) => store.credits.cast);
   const review = useSelector((store) => store.reviews?.review?.results[0]);
   const movies = useSelector((store) => store.movies);
+  const recommended = useSelector((store) => store.movies.recommended);
   const videos = useSelector((store) => store.media.videos);
   return (
     <div className="mt-24 px-3 md:mt-0 md:px-8 md:py-10">
@@ -56,14 +57,16 @@ const MiddleContainer = () => {
           </Link>
         </div>
       </div>
-      <div className="overflow-x-scroll no-scrollbar scroll-smooth">
-        <MovieList
-          title={"Recommended"}
-          movies={movies.recommended}
-          textColor={"text-black"}
-          gradient={"md:from-gray-300 from-40% via-gray-100"}
-        />
-      </div>
+      {recommended === 0 && (
+        <div className="overflow-x-scroll no-scrollbar scroll-smooth">
+          <MovieList
+            title={"Recommended"}
+            movies={movies.recommended}
+            textColor={"text-black"}
+            gradient={"md:from-gray-300 from-40% via-gray-100"}
+          />
+        </div>
+      )}
       <div className="  overflow-x-scroll no-scrollbar scroll-smooth">
         <MovieList
           title={"Similar"}

@@ -47,9 +47,9 @@ const Header = () => {
     return () => unsubsrcibe();
   }, []);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
+  // const handleClick = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   const handleSignOut = () => {
     signOut(auth)
@@ -114,7 +114,10 @@ const Header = () => {
           <div className="text-sm">
             <Box>
               <Tooltip>
-                <IconButton onClick={handleClick}>
+                <IconButton
+                  onMouseEnter={() => setIsOpen(true)}
+                  onMouseLeave={() => setIsOpen(false)}
+                >
                   <Avatar className="" sx={{ width: 30, height: 30 }}>
                     {user?.displayName?.at(0)}
                   </Avatar>
@@ -123,14 +126,17 @@ const Header = () => {
             </Box>
 
             {isOpen && (
-              <div className="bg-white md:w-[120px] right-6 absolute rounded-md">
-                <ListItem
-                  onClick={handleSignOut}
-                  className="cursor-pointer hover:bg-slate-300 hover:rounded-md"
-                >
-                  <Logout />
-                  Logout
-                </ListItem>
+              <div
+                onMouseEnter={() => setIsOpen(true)}
+                onMouseLeave={() => setIsOpen(false)}
+                className="bg-white md:w-[120px] right-6 absolute rounded-md"
+              >
+                <Link to="/browse">
+                  <ListItem className="cursor-pointer hover:bg-slate-300 hover:rounded-md">
+                    <HomeIcon />
+                    Home
+                  </ListItem>
+                </Link>
                 <Link to="/favourite">
                   <ListItem className="cursor-pointer hover:bg-slate-300 hover:rounded-md">
                     <FavoriteBorderIcon />
@@ -143,12 +149,14 @@ const Header = () => {
                     Watchlist
                   </ListItem>
                 </Link>
-                <Link to="/browse">
-                  <ListItem className="cursor-pointer hover:bg-slate-300 hover:rounded-md">
-                    <HomeIcon />
-                    Home
-                  </ListItem>
-                </Link>
+
+                <ListItem
+                  onClick={handleSignOut}
+                  className="cursor-pointer hover:bg-slate-300 hover:rounded-md"
+                >
+                  <Logout />
+                  Logout
+                </ListItem>
               </div>
             )}
           </div>

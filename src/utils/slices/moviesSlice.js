@@ -15,7 +15,7 @@ const moviesSlice = createSlice({
     topRatedMovies: null,
     upComingMovies: null,
     similarMovies: null,
-    recommended: null,
+    recommended: [],
     favourites: [],
     watchList: [],
   },
@@ -55,7 +55,7 @@ const moviesSlice = createSlice({
     },
     removeFavouriteMovie: (state, action) => {
       state.favourites = state.favourites.filter(
-        (movie) => movie.movieDetails?.id !== action.payload
+        (movie) => movie?.id !== action.payload
       );
     },
     addWatchlist: (state, action) => {
@@ -72,7 +72,7 @@ const moviesSlice = createSlice({
     },
     removeWatchlist: (state, action) => {
       state.watchList = state.watchList.filter(
-        (movie) => movie.movieDetails?.id !== action.payload
+        (movie) => movie?.id !== action.payload
       );
     },
   },
