@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
@@ -13,7 +13,7 @@ import Footer from "./Footer";
 import Shimmer from "./Shimmer";
 
 const Browse = () => {
-  const toggledValue = useSelector((store) => store.gpt.showGptSearchPage);
+  const user = useSelector((store) => store.user);
   const nowPlayingMovies = useSelector(
     (store) => store.movies.nowPlayingMovies
   );
@@ -31,7 +31,7 @@ const Browse = () => {
     dispatch(addPath(pathname));
   }, []);
 
-  return nowPlayingMovies === null ? (
+  return nowPlayingMovies === null || user === null ? (
     <Shimmer />
   ) : (
     <div className="w-full h-full">
