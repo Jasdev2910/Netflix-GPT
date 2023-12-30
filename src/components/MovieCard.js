@@ -26,18 +26,12 @@ const MovieCard = ({
 
   if (!poster_path) return null;
   return (
-    <div className="transition hover:-translate-y-1">
+    <div className="transition hover:-translate-y-1 ">
       <div
         className={`w-[100px] md:w-[180px] ${bgColor}  m-2 cursor-pointer rounded-lg relative shadow-md `}
       >
-        {/* {path === "/favourite" && (
-          <button onClick={removeFavourite} className=" left-[155px] z-50">
-            <CancelIcon />
-          </button>
-        )} */}
-
         <img
-          className="rounded-t-lg ob"
+          className="rounded-t-lg"
           alt="movie card"
           src={IMAGE_CDN_URL + poster_path}
         />
@@ -45,21 +39,16 @@ const MovieCard = ({
           <CircularRatingBar rating={rating.at()} />
         </div>
         <h3
-          className={`${textColor} bottom-4 relative md:bottom-7 md:left-2 text-sm md:text-base line-clamp-1`}
+          className={`${textColor} bottom-4 px-2 relative md:bottom-7 md:left-2 text-sm md:text-base line-clamp-1`}
         >
           {title}
         </h3>
         <p
-          className={`${textColor} bottom-4 text-xs md:text-base relative md:bottom-7 md:left-2`}
+          className={`${textColor} bottom-4 px-2 text-xs md:text-base relative md:bottom-7 md:left-2`}
         >
           {dayjs(date).format("MMM D, YYYY")}
         </p>
       </div>
-      {/* {path === "/favourite" && (
-        <button onClick={removeFavourite} className=" left-[155px] z-50">
-          <CancelIcon />
-        </button>
-      )} */}
     </div>
   );
 };

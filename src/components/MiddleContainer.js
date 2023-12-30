@@ -57,11 +57,11 @@ const MiddleContainer = () => {
           </Link>
         </div>
       </div>
-      {recommended === 0 && (
+      {recommended.length !== 0 && (
         <div className="overflow-x-scroll no-scrollbar scroll-smooth">
           <MovieList
             title={"Recommended"}
-            movies={movies.recommended}
+            movies={recommended}
             textColor={"text-black"}
             gradient={"md:from-gray-300 from-40% via-gray-100"}
           />

@@ -129,7 +129,7 @@ const Header = () => {
               <div
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}
-                className="bg-white md:w-[120px] right-6 absolute rounded-md"
+                className="bg-white md:w-[120px] right-6 absolute rounded-md z-30"
               >
                 <Link to="/browse">
                   <ListItem className="cursor-pointer hover:bg-slate-300 hover:rounded-md">
