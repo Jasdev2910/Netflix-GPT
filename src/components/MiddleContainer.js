@@ -64,6 +64,8 @@ const MiddleContainer = () => {
             movies={recommended}
             textColor={"text-black"}
             gradient={"md:from-gray-300 from-40% via-gray-100"}
+            bgColor={"bg-white"}
+            titleColor={"text-red-600"}
           />
         </div>
       )}
@@ -73,6 +75,8 @@ const MiddleContainer = () => {
           movies={movies.similarMovies}
           textColor={"text-black"}
           gradient={"md:from-gray-300 from-40% via-gray-100"}
+          bgColor={"bg-white"}
+          titleColor={"text-red-600"}
         />
       </div>
     </div>

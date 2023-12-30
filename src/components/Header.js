@@ -72,9 +72,11 @@ const Header = () => {
 
   return (
     <div className="w-full bg-gradient-to-b from-black flex justify-between items-center absolute z-10 p-1 md:p-4">
-      <div className="w-28 md:w-44">
-        <img src={Logo} alt="logo" />
-      </div>
+      <Link to="/browse">
+        <div className="w-28 md:w-44">
+          <img src={Logo} alt="logo" />
+        </div>
+      </Link>
       {user && (
         <div className="flex items-center justify-between">
           {path === "/gptSearch" && (

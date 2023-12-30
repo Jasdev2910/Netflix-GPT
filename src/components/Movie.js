@@ -25,7 +25,7 @@ const Movie = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(addPath(window.location.pathname));
+    dispatch(addPath(window.location.pathname.slice(0, 6)));
     dispatch(addMovieClicked(pathname));
   }, [movieId]);
 
