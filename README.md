@@ -77,4 +77,17 @@ To get started with NetflixGPT on your local machine, follow these steps:
 
 ## Screenshots
 
-[Add some screenshots of your project to showcase its features.]
+![App Screenshot](./src/assets/Screenshot8.png)
+![App Screenshot](./src/assets/Screenshot2.png)
+![App Screenshot](./src/assets/Screenshot3.png)
+![App Screenshot](./src/assets/Screenshot4.png)
+![App Screenshot](./src/assets/Screenshot6.png)
+![App Screenshot](./src/assets/Screenshot7.png)
+![App Screenshot](./src/assets/Screenshot9.png)
+![App Screenshot](./src/assets/Screenshot10.png)
+![App Screenshot](./src/assets/Screenshot11.png)
+![App Screenshot](./src/assets/Screenshot12.png)
+![App Screenshot](./src/assets/Screenshot14.png)
+![App Screenshot](./src/assets/Screenshot15.png)
+![App Screenshot](./src/assets/Screenshot16.png)
+![App Screenshot](./src/assets/Screenshot17.png)
