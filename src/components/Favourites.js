@@ -28,7 +28,7 @@ const Favourites = () => {
           </p>
         </div>
       )}
-      <div className="grid grid-cols-2 md:grid-cols-6 pl-4 mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-6 pl-2 mx-auto">
         {favourites?.map((movie) => (
           <div>
             <button

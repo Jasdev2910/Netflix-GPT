@@ -28,7 +28,7 @@ const MovieCard = ({
   return (
     <div className="transition hover:-translate-y-1 ">
       <div
-        className={`w-[100px] md:w-[180px] ${bgColor}  m-2 cursor-pointer rounded-lg relative shadow-md `}
+        className={`w-[130px] md:w-[180px] ${bgColor}  m-2 cursor-pointer rounded-lg relative shadow-md `}
       >
         <img
           className="rounded-t-lg"

@@ -14,7 +14,7 @@ const moviesSlice = createSlice({
     popularMovies: null,
     topRatedMovies: null,
     upComingMovies: null,
-    similarMovies: null,
+    similarMovies: [],
     recommended: [],
     favourites: [],
     watchList: [],

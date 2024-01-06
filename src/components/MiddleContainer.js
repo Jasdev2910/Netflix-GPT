@@ -69,16 +69,18 @@ const MiddleContainer = () => {
           />
         </div>
       )}
-      <div className="  overflow-x-scroll no-scrollbar scroll-smooth">
-        <MovieList
-          title={"Similar"}
-          movies={movies.similarMovies}
-          textColor={"text-black"}
-          gradient={"md:from-gray-300 from-40% via-gray-100"}
-          bgColor={"bg-white"}
-          titleColor={"text-red-600"}
-        />
-      </div>
+      {movies.similarMovies.length !== 0 && (
+        <div className="overflow-x-scroll no-scrollbar scroll-smooth">
+          <MovieList
+            title={"Similar"}
+            movies={movies.similarMovies}
+            textColor={"text-black"}
+            gradient={"md:from-gray-300 from-40% via-gray-100"}
+            bgColor={"bg-white"}
+            titleColor={"text-red-600"}
+          />
+        </div>
+      )}
     </div>
   );
 };
