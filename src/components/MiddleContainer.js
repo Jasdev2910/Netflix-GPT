@@ -11,6 +11,7 @@ import useVideo from "../hooks/useVideo";
 import useSimilarMovies from "../hooks/useSimilarMovies";
 import MovieList from "./MovieList";
 import useRecommendation from "../hooks/useRecommendation";
+import VideoList from "./VideoList";
 
 const MiddleContainer = () => {
   const movieId = useParams();
@@ -39,6 +40,9 @@ const MiddleContainer = () => {
           />
         ))}
       </div>
+      {/* <div className="overflow-x-scroll no-scrollbar scroll-smooth ">
+        <VideoList />
+      </div> */}
       <div className="py-3 md:px-5 md:py-5 ">
         <h2 className="font-semibold text-2xl md:pt-3 text-black">Social</h2>
         <div className="w-full flex flex-col items-center">

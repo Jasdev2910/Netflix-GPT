@@ -70,7 +70,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode + " " + errorMessage);
+          setErrorMessage("Invalid Email");
         });
     } else {
       // Sign In logic
@@ -88,7 +88,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode + " " + errorMessage);
+          setErrorMessage("Invalid Login Credentials");
         });
     }
   };
@@ -102,13 +102,13 @@ const Login = () => {
       <Header />
       <div>
         <img
-          className="absolute object-cover bg-image w-full h-full"
+          className="absolute object-cover bg-image w-full h-screen"
           src={BackgroundImg}
           alt="bg-img"
         />
       </div>
       <div className="absolute inset-0 object-cover bg-slate-900 bg-opacity-70"></div>
-      <div className="mt-8 text-white py-10 px-10 md:px-0 bg-black absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-opacity-75 rounded-xl">
+      <div className="mt-8 text-white py-4 px-10 md:px-0 bg-black absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-opacity-75 rounded-xl">
         <div
           onSubmit={(e) => e.preventDefault()}
           className="max-w-[250px] md:min-w-[450px] py-5 "

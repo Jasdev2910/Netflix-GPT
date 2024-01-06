@@ -4,7 +4,6 @@ import { addMovieDetails } from "../utils/slices/moviePageSlice";
 import { useDispatch } from "react-redux";
 
 const useMovieDetails = (movieId) => {
-  console.log(movieId);
   const dispatch = useDispatch();
 
   const getMovieDetails = async () => {

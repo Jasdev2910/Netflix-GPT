@@ -31,6 +31,9 @@ const TopContainer = () => {
   const hours = Math.floor(details.movieDetails?.runtime / 60);
   const minutes = Math.floor(details.movieDetails?.runtime % 60);
 
+  const movieTrailer = useSelector((store) => store.movies?.movieTrailer);
+  const keys = movieTrailer?.key;
+
   const handlePlay = () => {
     setToggle(!toggle);
   };
@@ -121,7 +124,7 @@ const TopContainer = () => {
                     movieId={details?.movieDetails?.id}
                     mute={"&mute=0&controls=1&rel=0"}
                   /> */}
-                  <VideoPalyer />
+                  <VideoPalyer keys={keys} />
                 </div>
                 <div
                   onClick={handlePause}
