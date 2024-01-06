@@ -19,6 +19,7 @@ import {
 } from "../utils/slices/moviesSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import VideoPalyer from "./VideoPalyer";
 
 const TopContainer = () => {
   const [toggle, setToggle] = useState(false);
@@ -115,11 +116,12 @@ const TopContainer = () => {
           {toggle && (
             <>
               <div className="w-full h-screen absolute flex items-center">
-                <div className="w-full px-2 md:w-8/12 z-30 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 absolute">
-                  <VideoBackground
+                <div className="w-full aspect-video px-2 md:w-[50%] z-30 top-[45%] md:top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 absolute">
+                  {/* <VideoBackground
                     movieId={details?.movieDetails?.id}
                     mute={"&mute=0&controls=1&rel=0"}
-                  />
+                  /> */}
+                  <VideoPalyer />
                 </div>
                 <div
                   onClick={handlePause}
