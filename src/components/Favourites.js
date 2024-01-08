@@ -35,7 +35,7 @@ const Favourites = () => {
               onClick={() => {
                 dispatch(removeFavouriteMovie(movie.id));
               }}
-              className="relative md:left-[165px] top-[20px] text-gray-500 transition hover:-translate-y-1 hover:text-red-600 z-10"
+              className="relative top-[20px] text-gray-500 transition hover:-translate-y-1 hover:text-red-600 z-10"
             >
               <CancelTwoToneIcon />
             </button>
